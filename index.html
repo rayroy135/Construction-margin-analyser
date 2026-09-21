@@ -124,6 +124,59 @@
     color: var(--text-secondary);
   }
 
+  .how-to-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px 28px;
+    margin-top: 6px;
+  }
+
+  @media (max-width: 720px){
+    .how-to-grid{ grid-template-columns: 1fr; gap: 18px; }
+  }
+
+  .how-to-group{
+    padding-left: 14px;
+    border-left: 2px solid var(--border-strong);
+  }
+
+  .how-to-group h3{
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--profit-strong);
+    margin: 0 0 10px;
+  }
+
+  .how-to-group ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .how-to-group li{
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin: 0 0 8px;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .how-to-group li:last-child{ margin-bottom: 0; }
+
+  .how-to-group li::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--loss-strong);
+  }
+
   .card{
     background: var(--panel);
     border: 1px solid var(--border);
@@ -437,6 +490,50 @@
   <section class="intro">
     <div class="intro-label">Background</div>
     <p>During work experience on the strategy team at Laing O'Rourke, I attended a briefing where a finance lead demonstrated how a £100m contract with a 5% profit margin could be almost entirely wiped out by a 4% cost overrun. This tool was built to model that dynamic, showing how thin construction margins are and how quickly cost overruns become catastrophic.</p>
+  </section>
+
+  <section class="card">
+    <h2>How to Use This Tool</h2>
+    <p class="card-sub">A quick guide to what each part of the page shows.</p>
+    <div class="how-to-grid">
+      <div class="how-to-group">
+        <h3>Inputs</h3>
+        <ul>
+          <li>Adjust the sliders to set your contract value, target margin and cost overrun</li>
+          <li>All figures, charts and tables update in real time</li>
+        </ul>
+      </div>
+      <div class="how-to-group">
+        <h3>Key Figures</h3>
+        <ul>
+          <li>Planned Profit shows what you make with no overrun</li>
+          <li>Profit at Scenario Overrun shows what you make after the overrun is applied</li>
+          <li>Profit Erosion shows how much profit in £ has been lost</li>
+          <li>Breakeven Overrun % shows the exact point at which the contract stops making money</li>
+        </ul>
+      </div>
+      <div class="how-to-group">
+        <h3>Line Chart</h3>
+        <ul>
+          <li>Shows profit falling as overrun increases, with the breakeven point marked</li>
+          <li>The line shifts colour when the contract becomes loss making</li>
+        </ul>
+      </div>
+      <div class="how-to-group">
+        <h3>Sensitivity Table</h3>
+        <ul>
+          <li>Shows profit margin across different margin and overrun combinations</li>
+          <li>Amber cells are profitable, blue cells are loss making</li>
+          <li>The outlined cell shows where your current inputs sit in the table</li>
+        </ul>
+      </div>
+      <div class="how-to-group">
+        <h3>Export</h3>
+        <ul>
+          <li>Use the export button to download the sensitivity table as a CSV file</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section class="card">
