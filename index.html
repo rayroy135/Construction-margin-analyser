@@ -96,6 +96,34 @@
     line-height: 1.5;
   }
 
+  .intro{
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--profit);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 22px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .intro .intro-label{
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .intro p{
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
   .card{
     background: var(--panel);
     border: 1px solid var(--border);
@@ -359,6 +387,26 @@
     flex-wrap: wrap;
   }
 
+  .btn-export{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, var(--loss), var(--profit));
+    color: var(--bg);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  .btn-export:hover{ opacity: 0.9; }
+  .btn-export:active{ transform: translateY(1px); }
+  .btn-export svg{ width: 15px; height: 15px; flex-shrink: 0; }
+
   footer{
     text-align: center;
     padding: 30px 12px 10px;
@@ -385,6 +433,11 @@
     </div>
     <p class="subtitle">Model how cost overruns erode contract profit — set your figures below to see the breakeven point and full sensitivity range.</p>
   </header>
+
+  <section class="intro">
+    <div class="intro-label">Background</div>
+    <p>During work experience on the strategy team at Laing O'Rourke, I attended a briefing where a finance lead demonstrated how a £100m contract with a 5% profit margin could be almost entirely wiped out by a 4% cost overrun. This tool was built to model that dynamic, showing how thin construction margins are and how quickly cost overruns become catastrophic.</p>
+  </section>
 
   <section class="card">
     <h2>Contract Inputs</h2>
@@ -467,6 +520,10 @@
       <span class="legend-item"><span class="swatch" style="background:var(--loss-strong)"></span> Loss-making</span>
       <span>· White outline marks the cell closest to your current inputs above</span>
     </p>
+    <button class="btn-export" id="exportCsvBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+      Export CSV
+    </button>
   </section>
 
   <footer>
@@ -734,6 +791,31 @@
   function getCss(varName){
     return getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
   }
+
+  function exportSensitivityCsv(){
+    var rows = [];
+    rows.push(['Margin \\ Overrun'].concat(OVERRUN_COLS.map(function(o){ return o + '%'; })));
+    MARGIN_ROWS.forEach(function(m){
+      var row = [m + '%'];
+      OVERRUN_COLS.forEach(function(o){
+        row.push(pct1(effectiveMarginPct(m, o)));
+      });
+      rows.push(row);
+    });
+
+    var csv = rows.map(function(row){ return row.join(','); }).join('\r\n');
+    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'margin-sensitivity.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  document.getElementById('exportCsvBtn').addEventListener('click', exportSensitivityCsv);
 
   ['input', 'change'].forEach(function(evt){
     els.contractValue.addEventListener(evt, render);
