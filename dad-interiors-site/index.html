@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aldridge & Sons Interiors — Covings, Ceiling Roses & Fireplaces</title>
+<meta name="description" content="Handcrafted covings, ceiling roses, fireplaces and decorative plasterwork. Mock demo site.">
+<style>
+  :root{
+    --cream: #faf6ef;
+    --cream-2: #f2ead9;
+    --charcoal: #2a2521;
+    --charcoal-2: #3d362f;
+    --brown: #6b5a48;
+    --gold: #b8863b;
+    --gold-light: #d9ad6a;
+    --line: rgba(42,37,33,0.12);
+    --white: #ffffff;
+    --radius: 8px;
+    --radius-lg: 16px;
+    --shadow: 0 10px 30px rgba(42,37,33,0.10);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  html, body{
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: "Georgia", "Iowan Old Style", "Palatino Linotype", serif;
+  }
+
+  h1, h2, h3, .brand{
+    font-family: "Trajan Pro", Georgia, "Times New Roman", serif;
+    letter-spacing: 0.03em;
+  }
+
+  p, li, a, button, input, textarea, label{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width: 100%; display: block; }
+
+  .wrap{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    background: var(--charcoal);
+    color: var(--cream-2);
+    font-size: 13px;
+  }
+  .topbar .wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .topbar span{ opacity: 0.85; }
+  .topbar .tel{ color: var(--gold-light); font-weight: 600; }
+
+  /* ---------- Header / nav ---------- */
+  header{
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(6px);
+  }
+  nav.wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+  }
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+  .brand .mark{
+    width: 38px; height: 38px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Trajan Pro", Georgia, serif;
+    color: var(--gold);
+    font-size: 18px;
+  }
+  .brand small{
+    display:block;
+    font-family: -apple-system, sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--brown);
+    font-weight: 500;
+  }
+  .navlinks{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0; padding: 0;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .navlinks a{
+    position: relative;
+    padding: 6px 0;
+    color: var(--charcoal-2);
+  }
+  .navlinks a:hover{ color: var(--gold); }
+  .nav-cta{
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .nav-cta:hover{ background: var(--gold); color: var(--charcoal); }
+
+  .burger{
+    display:none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .burger span{
+    width: 24px; height: 2px; background: var(--charcoal);
+    display:block;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(42,37,33,0.55), rgba(42,37,33,0.45)),
+      repeating-linear-gradient(135deg, #d9c8a9 0 2px, #cdb98f 2px 4px);
+    color: var(--cream);
+    overflow: hidden;
+  }
+  .hero .wrap{
+    padding: 100px 24px 110px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero-tag{
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: var(--gold-light);
+    font-weight: 700;
+    margin-bottom: 18px;
+    font-family: -apple-system, sans-serif;
+  }
+  .hero h1{
+    font-size: 46px;
+    line-height: 1.15;
+    margin: 0 0 20px;
+  }
+  .hero p{
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--cream-2);
+    max-width: 46ch;
+    margin: 0 0 32px;
+  }
+  .hero-actions{ display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn{
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    font-family: -apple-system, sans-serif;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn-gold{ background: var(--gold); color: var(--charcoal); }
+  .btn-outline{ background: transparent; border-color: var(--cream); color: var(--cream); }
+
+  .hero-art{
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255,255,255,0.25);
+    background:
+      radial-gradient(circle at 50% 30%, rgba(216,173,106,0.35), transparent 60%),
+      linear-gradient(160deg, #4a4038, #2a2521);
+    position: relative;
+    box-shadow: var(--shadow);
+  }
+  .rose-motif{
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 62%;
+    transform: translate(-50%,-50%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid rgba(216,173,106,0.55);
+  }
+  .rose-motif::before, .rose-motif::after{
+    content: "";
+    position: absolute; inset: 14%;
+    border-radius: 50%;
+    border: 3px solid rgba(216,173,106,0.4);
+  }
+  .rose-motif::after{ inset: 30%; }
+
+  .stats{
+    display: flex;
+    gap: 40px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .stats div{ font-family: -apple-system, sans-serif; }
+  .stats strong{
+    display: block;
+    font-size: 26px;
+    color: var(--gold-light);
+    font-family: Georgia, serif;
+  }
+  .stats span{ font-size: 12px; color: var(--cream-2); letter-spacing: 0.04em; }
+
+  /* ---------- Section shared ---------- */
+  section{ padding: 90px 0; }
+  .section-head{
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 56px;
+  }
+  .eyebrow{
+    display:block;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 14px;
+    font-family: -apple-system, sans-serif;
+  }
+  .section-head h2{ font-size: 34px; margin: 0 0 16px; }
+  .section-head p{
+    font-family: -apple-system, sans-serif;
+    color: var(--brown);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ---------- Products ---------- */
+  .products{ background: var(--white); }
+  .product-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+  .product-card{
+    background: var(--cream);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .product-card:hover{ box-shadow: var(--shadow); transform: translateY(-4px); }
+  .product-thumb{
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 46px;
+    color: var(--white);
+  }
+  .thumb-1{ background: linear-gradient(135deg, #8a6f4d, #b8863b); }
+  .thumb-2{ background: linear-gradient(135deg, #6b5a48, #9c7f56); }
+  .thumb-3{ background: linear-gradient(135deg, #4a4038, #6b5a48); }
+  .thumb-4{ background: linear-gradient(135deg, #b8863b, #d9ad6a); }
+
+  .product-body{ padding: 22px; }
+  .product-body h3{
+    font-size: 18px;
+    margin: 0 0 8px;
+  }
+  .product-body p{
+    font-family: -apple-system, sans-serif;
+    font-size: 13.5px;
+    color: var(--brown);
+    line-height: 1.6;
+    margin: 0 0 14px;
+  }
+  .price-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: -apple-system, sans-serif;
+  }
+  .price{ font-weight: 700; color: var(--gold); font-size: 15px; }
+  .pill{
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--cream-2);
+    color: var(--brown);
+    font-weight: 600;
+  }
+
+  /* ---------- Why us / features ---------- */
+  .features{ background: var(--charcoal); color: var(--cream); }
+  .features .section-head p{ color: var(--cream-2); }
+  .features .eyebrow{ color: var(--gold-light); }
+  .feature-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .feature-card{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--radius-lg);
+    padding: 30px 26px;
+  }
+  .feature-card .icon{
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: rgba(216,173,106,0.15);
+    color: var(--gold-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+  .feature-card h3{ font-size: 17px; margin: 0 0 10px; }
+  .feature-card p{
+    font-family: -apple-system, sans-serif;
+    font-size: 13.5px;
+    color: var(--cream-2);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 140px;
+    gap: 14px;
+  }
+  .gallery-grid div{
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--g1, #b8863b), var(--g2, #6b5a48));
+  }
+  .gallery-grid div:nth-child(1){ grid-column: span 2; grid-row: span 2; --g1:#b8863b; --g2:#8a6f4d; }
+  .gallery-grid div:nth-child(2){ --g1:#4a4038; --g2:#6b5a48; }
+  .gallery-grid div:nth-child(3){ --g1:#d9ad6a; --g2:#b8863b; }
+  .gallery-grid div:nth-child(4){ grid-row: span 2; --g1:#6b5a48; --g2:#3d362f; }
+  .gallery-grid div:nth-child(5){ grid-column: span 2; --g1:#9c7f56; --g2:#b8863b; }
+  .gallery-grid div:nth-child(6){ --g1:#3d362f; --g2:#6b5a48; }
+
+  /* ---------- Testimonials ---------- */
+  .testimonials{ background: var(--cream-2); }
+  .testi-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .testi-card{
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    border: 1px solid var(--line);
+  }
+  .stars{ color: var(--gold); font-size: 14px; margin-bottom: 14px; }
+  .testi-card p{
+    font-family: -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--charcoal-2);
+    margin: 0 0 18px;
+  }
+  .testi-name{ font-weight: 700; font-size: 14px; font-family: -apple-system, sans-serif; }
+  .testi-loc{ font-size: 12px; color: var(--brown); font-family: -apple-system, sans-serif; }
+
+  /* ---------- CTA band ---------- */
+  .cta-band{
+    background: linear-gradient(120deg, var(--gold), var(--gold-light));
+    color: var(--charcoal);
+    text-align: center;
+  }
+  .cta-band h2{ font-size: 30px; margin: 0 0 14px; }
+  .cta-band p{
+    font-family: -apple-system, sans-serif;
+    max-width: 50ch;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+  }
+  .cta-band .btn-outline{ border-color: var(--charcoal); color: var(--charcoal); }
+
+  /* ---------- Contact ---------- */
+  .contact{ background: var(--white); }
+  .contact-grid{
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 50px;
+  }
+  .contact-info h3{ font-size: 20px; margin: 0 0 18px; }
+  .contact-info p{
+    font-family: -apple-system, sans-serif;
+    color: var(--brown);
+    line-height: 1.7;
+    font-size: 14.5px;
+    margin: 0 0 24px;
+  }
+  .info-row{
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-family: -apple-system, sans-serif;
+  }
+  .info-row .ic{
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--cream-2);
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+  .info-row strong{ display:block; font-size: 14px; }
+  .info-row span{ font-size: 13px; color: var(--brown); }
+
+  form{
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    display: grid;
+    gap: 16px;
+    font-family: -apple-system, sans-serif;
+  }
+  .form-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  label{ font-size: 12px; font-weight: 700; color: var(--charcoal-2); display: block; margin-bottom: 6px; }
+  input, textarea, select{
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--white);
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--charcoal);
+  }
+  input:focus, textarea:focus, select:focus{
+    outline: none;
+    border-color: var(--gold);
+  }
+  textarea{ resize: vertical; min-height: 100px; }
+  .submit-btn{
+    background: var(--charcoal);
+    color: var(--cream);
+    border: none;
+    padding: 14px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .submit-btn:hover{ background: var(--gold); color: var(--charcoal); }
+  .form-note{
+    font-size: 12px;
+    color: var(--brown);
+    text-align: center;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--charcoal);
+    color: var(--cream-2);
+    padding: 60px 0 28px;
+  }
+  .footer-grid{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-grid h4{
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+    margin: 0 0 18px;
+    font-family: -apple-system, sans-serif;
+  }
+  .footer-grid ul{ list-style: none; margin: 0; padding: 0; }
+  .footer-grid li{ margin-bottom: 10px; font-size: 13.5px; }
+  .footer-grid a{ color: var(--cream-2); font-family: -apple-system, sans-serif; }
+  .footer-grid a:hover{ color: var(--gold-light); }
+  .footer-brand p{
+    font-family: -apple-system, sans-serif;
+    font-size: 13.5px;
+    color: rgba(250,246,239,0.65);
+    line-height: 1.7;
+    max-width: 34ch;
+  }
+  .bottom-bar{
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: -apple-system, sans-serif;
+    font-size: 12px;
+    color: rgba(250,246,239,0.5);
+  }
+
+  /* ---------- Mock banner ---------- */
+  .mock-banner{
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: -apple-system, sans-serif;
+    font-size: 12px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    z-index: 100;
+    border: 1px solid rgba(216,173,106,0.4);
+  }
+  .mock-banner strong{ color: var(--gold-light); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px){
+    .hero .wrap{ grid-template-columns: 1fr; padding-top: 60px; }
+    .hero-art{ order: -1; max-width: 380px; margin: 0 auto; }
+    .product-grid{ grid-template-columns: repeat(2, 1fr); }
+    .feature-grid{ grid-template-columns: 1fr; }
+    .testi-grid{ grid-template-columns: 1fr; }
+    .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
+    .contact-grid{ grid-template-columns: 1fr; }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+    .navlinks, .nav-cta{ display: none; }
+    .burger{ display: flex; }
+    .navlinks.open{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--cream);
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--line);
+      gap: 16px;
+    }
+  }
+  @media (max-width: 600px){
+    .hero h1{ font-size: 32px; }
+    .product-grid{ grid-template-columns: 1fr; }
+    .form-row{ grid-template-columns: 1fr; }
+    .stats{ gap: 24px; }
+    .topbar .wrap{ justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <span>Est. 1994 &middot; Family run, three generations of plasterwork</span>
+      <span class="tel">Call the showroom: 01234 567 890</span>
+    </div>
+  </div>
+
+  <header>
+    <nav class="wrap">
+      <a href="#top" class="brand">
+        <span class="mark">A&amp;S</span>
+        <span>
+          Aldridge &amp; Sons
+          <small>INTERIORS &amp; PLASTERWORK</small>
+        </span>
+      </a>
+      <ul class="navlinks" id="navlinks">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Request a Quote</a>
+      <button class="burger" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <span class="hero-tag">Bespoke Plasterwork &amp; Fireplaces</span>
+        <h1>Covings, ceiling roses &amp; fireplaces that finish a room properly.</h1>
+        <p>We design, cast and fit period and contemporary plasterwork across the region &mdash; from a single ceiling rose to a full house of coving, corbels and a fireplace surround built to last generations.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn btn-gold">Browse the Range</a>
+          <a href="#contact" class="btn btn-outline">Book a Free Survey</a>
+        </div>
+        <div class="stats">
+          <div><strong>30+</strong><span>Years trading</span></div>
+          <div><strong>1,200+</strong><span>Rooms finished</span></div>
+          <div><strong>5.0</strong><span>Average rating</span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="rose-motif"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What We Make</span>
+        <h2>Our Range</h2>
+        <p>Every piece is cast from our own moulds or made to a custom profile, then fitted by our own installers &mdash; not subcontracted out.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-thumb thumb-1">&#9784;</div>
+          <div class="product-body">
+            <h3>Coving &amp; Cornice</h3>
+            <p>Plaster and polyurethane profiles from simple coving to deep Georgian cornice, cut and mitred on site.</p>
+            <div class="price-row">
+              <span class="price">From &pound;18/m</span>
+              <span class="pill">40+ profiles</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb thumb-2">&#10052;</div>
+          <div class="product-body">
+            <h3>Ceiling Roses</h3>
+            <p>Centrepieces from a modest 30cm rose to a grand 1.2m dining room feature, fitted around existing wiring.</p>
+            <div class="price-row">
+              <span class="price">From &pound;65</span>
+              <span class="pill">Made to size</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb thumb-3">&#9673;</div>
+          <div class="product-body">
+            <h3>Fireplace Surrounds</h3>
+            <p>Marble, wood and cast plaster surrounds, supplied and fitted with hearth and gas or electric inset options.</p>
+            <div class="price-row">
+              <span class="price">From &pound;450</span>
+              <span class="pill">Free survey</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb thumb-4">&#9825;</div>
+          <div class="product-body">
+            <h3>Corbels, Niches &amp; Trim</h3>
+            <p>Corbels, arch mouldings, wall panelling and skirting to match or complement any of the above.</p>
+            <div class="price-row">
+              <span class="price">From &pound;12/piece</span>
+              <span class="pill">Custom orders</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="why-us">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why Aldridge &amp; Sons</span>
+        <h2>Built the old way, quoted the honest way</h2>
+        <p>No hard sell, no hidden extras. Just a straight quote and a tidy job.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon">&#128736;</div>
+          <h3>Fitted, not just supplied</h3>
+          <p>Our own fitters install everything we sell, so the finish matches the quality of the casting.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">&#9998;</div>
+          <h3>Custom profiles &amp; moulds</h3>
+          <p>Can't find the right cornice in a catalogue? We'll cast a bespoke mould to match your original.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">&#128337;</div>
+          <h3>Most rooms in a day</h3>
+          <p>A standard coving and rose job is usually in and finished within a single working day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Recent Work</span>
+        <h2>A Few Finished Rooms</h2>
+        <p>A small sample of coving, roses and fireplace installs from the last few months.</p>
+      </div>
+      <div class="gallery-grid">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Kind Words</span>
+        <h2>What Customers Say</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Matched the coving in our 1920s hallway perfectly &mdash; couldn't tell where the old plaster ended and the new began."</p>
+          <div class="testi-name">Margaret H.</div>
+          <div class="testi-loc">Period renovation, Oakfield Road</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Fireplace surround looks like it's always been there. Tidy work, no mess left behind, done in a day."</p>
+          <div class="testi-name">David R.</div>
+          <div class="testi-loc">Living room refit, The Willows</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Ceiling rose in the dining room is the first thing every guest asks about. Worth every penny."</p>
+          <div class="testi-name">Priya S.</div>
+          <div class="testi-loc">New build, Meadow Rise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Ready to finish the room properly?</h2>
+      <p>Free, no-obligation site survey and quote &mdash; we'll tell you honestly if a job isn't worth doing.</p>
+      <a href="#contact" class="btn btn-outline">Get Your Free Quote</a>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Request a Quote</h2>
+        <p>Tell us a bit about the room and what you're after, and we'll get back to you within a working day.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Visit the Showroom</h3>
+          <p>See coving profiles, ceiling rose sizes and fireplace surrounds in person before you order.</p>
+          <div class="info-row">
+            <div class="ic">&#128205;</div>
+            <div><strong>Showroom</strong><span>14 Millbrook Lane, Riverside Industrial Estate</span></div>
+          </div>
+          <div class="info-row">
+            <div class="ic">&#128222;</div>
+            <div><strong>Phone</strong><span>01234 567 890</span></div>
+          </div>
+          <div class="info-row">
+            <div class="ic">&#9993;</div>
+            <div><strong>Email</strong><span>hello@aldridgeandsons.example</span></div>
+          </div>
+          <div class="info-row">
+            <div class="ic">&#128337;</div>
+            <div><strong>Hours</strong><span>Mon&ndash;Fri 8am&ndash;5pm, Sat 9am&ndash;1pm</span></div>
+          </div>
+        </div>
+        <form id="quoteForm">
+          <div class="form-row">
+            <div>
+              <label for="name">Full name</label>
+              <input type="text" id="name" placeholder="Jane Smith" required>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" placeholder="07123 456789" required>
+            </div>
+          </div>
+          <div>
+            <label for="interest">What are you after?</label>
+            <select id="interest">
+              <option>Coving &amp; Cornice</option>
+              <option>Ceiling Rose</option>
+              <option>Fireplace Surround</option>
+              <option>Corbels / Trim</option>
+              <option>Not sure &mdash; general enquiry</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Tell us about the room</label>
+            <textarea id="message" placeholder="Room size, style, any photos you can send separately..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Enquiry</button>
+          <div class="form-note">This is a demo form &mdash; nothing is actually sent.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand" style="color:var(--cream); margin-bottom:14px;">
+            <span class="mark">A&amp;S</span>
+            <span>Aldridge &amp; Sons</span>
+          </div>
+          <p>Family-run plasterwork and fireplace specialists. Three generations of covings, ceiling roses and fireplaces done properly.</p>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#products">Coving &amp; Cornice</a></li>
+            <li><a href="#products">Ceiling Roses</a></li>
+            <li><a href="#products">Fireplace Surrounds</a></li>
+            <li><a href="#products">Corbels &amp; Trim</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#why-us">Why Us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>01234 567 890</li>
+            <li>hello@aldridgeandsons.example</li>
+            <li>14 Millbrook Lane</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <span>&copy; 2026 Aldridge &amp; Sons Interiors. Demo site &mdash; not a real business.</span>
+        <span>Mock website built to show how simple a first website can be.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mock-banner">&#9998; <strong>Mock site</strong> &mdash; built as a demo</div>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const navlinks = document.getElementById('navlinks');
+    burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+    navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+    document.getElementById('quoteForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Thanks! This is a demo form, so nothing was actually sent — but this is exactly how a real enquiry form would work.');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
